@@ -1,0 +1,38 @@
+.header{
+    position: relative;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    background-color: #0e0e56;
+    margin-bottom: 20px;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 300px;
+}
+
+.input {
+    height: 36px;
+    background-color: white;
+    width: 100%;
+    border-radius: 20px;
+    padding-left: 45px;
+    border: 1px solid #0e0e56;
+    color: #0e0e56;
+    font-size: 15px;
+  }
+  .btn {
+    position: absolute;
+    background-color: chocolate;
+    left:500px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    color: #ffff;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+  }
