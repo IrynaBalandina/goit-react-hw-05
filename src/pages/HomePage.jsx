@@ -5,16 +5,17 @@ import Loader from "../components/Loader/Loader.jsx";
 
 const HomePage = () => {
 
-    const[movies, setTrendMovies]= useState([]);
+    const[movies, setMovies]= useState([]);
     const [isLoading, setIsLoading] = useState(false);
   const [error, setError] =  useState(false);
 
     useEffect(() => {
       const fetchMovies = async () => {
       try{
-        setError(false)
+        setError(false);
         const data = await getTrendingMovies();
-        setTrendMovies(data);
+        setMovies(data);
+        console.log(data);
       }catch{
        setError(true);
       }finally{

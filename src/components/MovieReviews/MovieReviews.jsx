@@ -9,6 +9,8 @@ const [isLoading, setIsLoading] = useState(false);
 const [error, setError] =  useState(false);
 
 useEffect(()=>{
+  if(!movieId)
+    return;
   const fetchReviews  = async()=>{
     try{
       setError(false);
@@ -25,8 +27,8 @@ useEffect(()=>{
 
 if(error)
   return <p>Opps, something is wrong!Please, try again!</p>;
-if(!isLoading)
-  return <p>Loading casts</p>;
+ if(!isLoading)
+   return <p>Loading reviews</p>;
 
   return (
     <div>

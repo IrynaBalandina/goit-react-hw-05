@@ -10,13 +10,14 @@ const SearchForm = ({onSubmit}) => {
         const searchMovieForm = form.elements.search.value.trim();
     
         if (searchMovieForm === "") {
-   toast.error("No movies found for your search.", {
+ return  toast.error("No movies found for your search.", {
           position: "top-right",
         });
         }
     
         onSubmit(searchMovieForm);
         form.reset();
+        form.elements.search.focus();
       };
   return (
      

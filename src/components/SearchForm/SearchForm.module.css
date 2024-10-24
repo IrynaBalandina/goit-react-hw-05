@@ -27,7 +27,7 @@
   .btn {
     position: absolute;
     background-color: chocolate;
-    left:500px;
+    left:480px;
     top: 50%;
     transform: translateY(-50%);
     background: none;

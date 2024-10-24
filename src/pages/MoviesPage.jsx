@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const query = searchParams.get("query") ?? "";
@@ -16,19 +17,22 @@ const MoviesPage = () => {
 
   const getMovies = async () => {
     
+       try {
+        setError(false);
         const data = await getSearchMovie(query);
         setMovies(data);
-    }
+      } catch {
+        setError(true);
+      }
+    };
     getMovies();
   }, [searchParams]);
 
-  const handleSubmit = (value) => {
-    if (!value) {
-      return setSearchParams({});
-    }
+  const handleSubmit = value => {
+   
     setSearchParams({ query: value });
   }
-  
+    if (error) return <p>Something went wrong! Please try again later.</p>;
   return (
     <div>
         <SearchForm onSubmit={handleSubmit} />
