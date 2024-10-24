@@ -3,12 +3,13 @@ import { getCast } from "../../api/api";
 import { useEffect, useState } from "react";
 import style from './MovieCast.module.css';
 
-const defaultImg =  "https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster";
+const defaultImg = 
+"https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg";
 
 
 const MovieCast = () => {
 const {movieId} = useParams();
-const [casts, setCasts] = useState([]);
+const [casts, setCasts] = useState(null);
 const [isLoading, setIsLoading] = useState(false);
 const [error, setError] =  useState(false);
 
@@ -44,11 +45,7 @@ if(!isLoading)
                 <li key = {cast.casts_id} className = {style.castCard}>
                     <img 
                     className = {style.photo}
-                    src={
-                        cast.profile_path
-                          ? `https://image.tmdb.org/t/p/w500/${cast.profile_path}`
-                          : defaultImg
-                      } 
+                    src={cast.profile_path ? `https://image.tmdb.org/t/p/w500${cast.profile_path}` : defaultImg}
                     alt="actor"
                     width={150}
                      />

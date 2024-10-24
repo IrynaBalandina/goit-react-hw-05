@@ -1,19 +1,20 @@
-import { useParams, useLocation, NavLink, Link,  Outlet} from 'react-router-dom';
+import { useParams, NavLink, Link, useLocation, Outlet} from 'react-router-dom';
 import {getMovieById} from '../../api/api.js';
-import { useEffect, useRef, useState,Suspense } from 'react';
+import { useEffect,  useState,Suspense, useRef } from 'react';
 import Loader from '../../components/Loader/Loader';
 import style from './MovieDetailsPage.module.css';
-import clsx from "clsx";
+ import clsx from "clsx";
 
-const buildNavLinkClass = ({ isActive }) => {
-  return clsx(style.link, isActive && style.active);
-}
+ const buildNavLinkClass = ({ isActive }) => {
+return clsx(style.link, isActive && style.active);
+ }
 
 
 const MovieDetailsPage = () => {
     const { movieId } = useParams();
-    const location = useLocation();
-    const goBack =  useRef(location.state ?? "/");
+
+   const location = useLocation();
+     const goBack =  useRef(location.state ?? "/");
     const [movie, setMovie] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] =  useState(false);
@@ -83,14 +84,16 @@ useEffect(()=>{
 
       <div className={style.navContainer}>
       
-         <nav className={style.nav}> 
+          <nav className={style.nav}> 
            <NavLink className={buildNavLinkClass} to="cast"> 
-            Cast 
-           </NavLink> 
+             Cast 
+           </NavLink>
           <NavLink className={buildNavLinkClass} to="reviews"> 
-            Reviews
-          </NavLink>
-        </nav> 
+             Reviews 
+           </NavLink> 
+         </nav>  
+
+       
       </div>
 
       <Suspense fallback={<Loader />}>
