@@ -45,7 +45,7 @@ useEffect(()=>{
 
 
   return (
-    <div className={style.wrapperDetails}>
+    <div className={style.wrapperInfo}>
       <div className={style.wrapperGoBack}>
         <Link className={style.linkGoBack} to={goBack.current}>
           Go back

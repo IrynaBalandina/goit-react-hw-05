@@ -1,11 +1,13 @@
-.wrapperDetails {
-  margin: 50px 0 20px 0;
+.wrapperInfo {
+  margin: auto;
 }
 .wrapperGoBack {
   padding-bottom: 20px;
 }
 .linkGoBack {
-  color: rgb(15, 14, 14);
+    color: rgb(29, 26, 26);
+  font-size: 24px;
+  
 }
 .linkGoBack:hover {
   color: rgb(221, 30, 30);
@@ -18,11 +20,11 @@
 }
 
 .poster {
-  padding: 10px;
+  padding: 30px;
   background-color: rgb(50, 49, 49);
   border-radius: 30px;
   transition: transform 0.3s ease;
-  width: 240px;
+  width: 360px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 .info {
@@ -39,13 +41,13 @@
 }
 .navContainer {
   width: 100%;
-  background-color: #333;
+  
   border-radius: 50px;
   border: #292929 solid 1px;
 }
 .link {
-  color: white;
-  font-size: 18px;
+  color: rgba(28, 26, 26, 0.888);
+  font-size: 24px;
   text-decoration: none;
   padding: 10px;
   transition: transform 0.9s ease-in-out, color 0.4s ease-out;
@@ -53,18 +55,4 @@
 }
 .link:hover {
   transform: scale(1.2);
-}
-.link.active {
-  color: rgb(195, 5, 5);
-}
-.link.active::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 8px;
-  background-color: rgb(195, 5, 5);
-  border-radius: 50%;
 }
