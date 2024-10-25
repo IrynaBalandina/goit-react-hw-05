@@ -22,8 +22,8 @@ useEffect(()=>{
            setIsLoading(true);
            setError(false);
            const data = await getCast(movieId);
-            setCasts(data);
-            console.log(data);
+            setCasts(data.cast);
+            console.log(data.cast);
         }catch{
        setError(true);
     }finally{
@@ -37,7 +37,7 @@ useEffect(()=>{
 
 if(error)
     return <p>Opps, something is wrong!Please, try again!</p>;
-if(!isLoading)
+if(isLoading)
     return <p>Loading casts</p>;
 
 
