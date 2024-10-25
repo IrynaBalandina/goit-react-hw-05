@@ -29,6 +29,7 @@ useEffect(()=>{
       setError(false);
       const data = await getMovieById(movieId);
       setMovie(data);
+      console.log(data);
     }catch{
       setError(true)
     }finally{

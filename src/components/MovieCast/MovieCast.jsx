@@ -9,7 +9,7 @@ const defaultImg =
 
 const MovieCast = () => {
 const {movieId} = useParams();
-const [casts, setCasts] = useState(null);
+const [casts, setCasts] = useState([]);
 const [isLoading, setIsLoading] = useState(false);
 const [error, setError] =  useState(false);
 
@@ -19,9 +19,11 @@ useEffect(()=>{
     const fetchCasts = async()=>{
        
         try{
-            setError(false);
-            const data = await getCast(movieId);
+           setIsLoading(true);
+           setError(false);
+           const data = await getCast(movieId);
             setCasts(data);
+            console.log(data);
         }catch{
        setError(true);
     }finally{
@@ -30,6 +32,8 @@ useEffect(()=>{
     };
     fetchCasts()
 },[movieId]);
+
+
 
 if(error)
     return <p>Opps, something is wrong!Please, try again!</p>;
@@ -42,7 +46,7 @@ if(!isLoading)
         <ul className = {style.castList}>
             
         {casts.map((cast)=>(
-                <li key = {cast.casts_id} className = {style.castCard}>
+                <li key = {cast.id} className = {style.castCard}>
                     <img 
                     className = {style.photo}
                     src={cast.profile_path ? `https://image.tmdb.org/t/p/w500${cast.profile_path}` : defaultImg}

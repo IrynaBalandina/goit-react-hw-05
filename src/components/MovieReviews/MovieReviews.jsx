@@ -15,15 +15,17 @@ useEffect(()=>{
     try{
       setError(false);
       const data  = await getReviews(movieId);
-      setReviews(data)
+      setReviews(data);
+      console.log(data);
     }catch{
-      setError(false)
+      setError(false);
     }finally{
-      setIsLoading(true)
+      setIsLoading(true);
     }
   }
   fetchReviews();
 }, [movieId]);
+
 
 if(error)
   return <p>Opps, something is wrong!Please, try again!</p>;

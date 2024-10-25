@@ -4,21 +4,23 @@ import style from './SearchForm.module.css'
 
 const SearchForm = ({onSubmit}) => {
 
-    const handleSubmit = (e) => {
+    const handleSubmit = e => {
         e.preventDefault();
         const form  = e.target;
-        const searchMovieForm = form.elements.search.value.trim();
+      
+        const searchMovieForm = form.elements.text.value.trim();
     
-        if (searchMovieForm === "") {
- return  toast.error("No movies found for your search.", {
-          position: "top-right",
-        });
+        if (searchMovieForm === "" || searchMovieForm === null) {
+  toast.error("No movies found for your search.");
+  return ;
+        }else{
+          onSubmit(searchMovieForm);
+          form.reset();
+          form.elements.search.focus();
+        };
         }
     
-        onSubmit(searchMovieForm);
-        form.reset();
-        form.elements.search.focus();
-      };
+    
   return (
      
     <header className={style.header}>
