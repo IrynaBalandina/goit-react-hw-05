@@ -13,14 +13,15 @@ useEffect(()=>{
     return;
   const fetchReviews  = async()=>{
     try{
+      setIsLoading(true);
       setError(false);
       const data  = await getReviews(movieId);
       setReviews(data);
       console.log(data);
     }catch{
-      setError(false);
+      setError(true);
     }finally{
-      setIsLoading(true);
+      setIsLoading(false);
     }
   }
   fetchReviews();
@@ -31,6 +32,7 @@ if(error)
   return <p>Opps, something is wrong!Please, try again!</p>;
  if(!isLoading)
    return <p>Loading reviews</p>;
+
 
   return (
     <div>

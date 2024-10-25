@@ -39,7 +39,8 @@ if(error)
     return <p>Opps, something is wrong!Please, try again!</p>;
 if(isLoading)
     return <p>Loading casts</p>;
-
+if (!casts.length)
+    return <h2>Cast information for this movie is currently unavailable</h2>;
 
   return (
     <div>

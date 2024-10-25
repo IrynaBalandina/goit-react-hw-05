@@ -28,7 +28,7 @@ return data;
 
 export const getReviews = async(movieId)=>{
 const{data} =await axios.get(`movie/${movieId}/reviews`, options);
-return data.results;
+return data;
 };
 
 export const getSearchMovie = async (query) => {
