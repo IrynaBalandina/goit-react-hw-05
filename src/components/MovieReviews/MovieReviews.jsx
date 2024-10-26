@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const MovieReviews = () => {
    const {movieId} = useParams();
 const [reviews, setReviews] = useState([]);
-const [isLoading, setIsLoading] = useState(false);
+const [isLoading, setIsLoading] = useState(true);
 const [error, setError] =  useState(false);
 
 useEffect(()=>{
@@ -32,7 +32,7 @@ if(error)
   return <p>Opps, something is wrong!Please, try again!</p>;
  if(!isLoading)
    return <p>Loading reviews</p>;
-
+ 
 
   return (
     <div>
